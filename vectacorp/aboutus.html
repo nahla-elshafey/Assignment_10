@@ -13,12 +13,84 @@
 	<![endif]-->
 
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="js/jquery.mobilemenu.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.cycle2/2.1.6/jquery.cycle2.min.js"></script>
+
 	<script>
 		$(document).ready(function(){
 			$('#responsive-menu').mobileMenu();
 		});
 	</script>
+	<script>
+		$(document).ready(function(){
+			$('#responsive-menu li a').tooltip({
+				position: {
+					my: "left+500 top+50",
+					at: "center bottom",
+					using: function( position, feedback ) {
+						$( this ).css( position );
+						$( "<div>" )
+							.addClass( "arrow" )
+							.addClass( feedback.vertical )
+							.addClass( feedback.horizontal )
+							.appendTo( this );
+					}
+				}
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$("#welcome h4:contains('Management Team')").next().tabs();
+		});
+	</script>
+
+	
+	<script>
+		$(document).ready(function () {
+			// Initialize the Tabs
+			$("#managementTabs").tabs();
+	
+			// Initialize the Cycle2 Slideshow
+			$(".cycle-slideshow").cycle({
+				fx: 'fade',
+				timeout: 3000,
+				slides: '> img',
+				prev: '#prev',
+				next: '#next',
+				pager: '#pager'
+			});
+		});
+	</script>
+	<style>
+		/* Style for horizontal tabs */
+		#managementTabs {
+			margin-top: 20px;
+		}
+	
+		#managementTabs ul {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+			display: flex;
+		}
+	
+		#managementTabs ul li {
+			margin-right: 10px;
+		}
+	
+		/* Style for Cycle2 navigation */
+		.cycle-navigation {
+			margin-top: 10px;
+		}
+	
+		#pager {
+			text-align: center;
+			margin-top: 10px;
+		}
+	</style>
+
 </head>
 <body>
 	<main class="container">
@@ -52,15 +124,107 @@
             <h4>Management Team</h4>
             
             <!-- INSERT VERTICAL TABS HERE -->
+			<div id="managementTabs" class="ui-tabs">
+				<ul>
+					<li><a href="#agnes">Agnes</a></li>
+					<li><a href="#damon">Damon</a></li>
+					<li><a href="#herbert">Herbert</a></li>
+					<li><a href="#mike">Mike</a></li>
+					<li><a href="#wilbur">Wilbur</a></li>
+				</ul>
+		
+				<!-- Agnes Content -->
+				<div id="agnes">
+					<h5>Agnes</h5>
+					<p>Vice President, Accounting</p>
+					<p>With over 14 years of public accounting and business advisory service experience in the Tongas, Ecuador, Canada, Botswana, and the US, Agnes is the most seasoned and diverse member of the Vecta Corp. team.</p>
+				</div>
+		
+				<!-- Damon Content -->
+				<div id="damon">
+					<h5>Damon</h5>
+					<p>Director of Development</p>
+					<p>Damon is the Director of Development for Vecta Corp. Damon creates learning materials for Vecta Corp. as well as consulting for customers to integrate vSolutions into their production pipeline and business processes. Vecta Corp. is creating the next revolution of digital media applications that incorporates 2D, 3D, sound, and video into a single multimedia presentation that can be distributed on the Web, CD/DVD-ROM, Kiosks, or intranet environments.</p>
+				</div>
+		
+				<!-- Herbert Content -->
+				<div id="herbert">
+					<h5>Herbert</h5>
+					<p>Director of Human Resources</p>
+					<p>Herbert joined Vecta Corp. in October 1999 as Vecta Corp.'s first Human Resources Director. As such, he has overall human resources responsibility for Vecta Corp.'s operations worldwide and is based at the company's global headquarters in San Diego. Although responsible for Vecta Corp.'s human resources strategies globally, Herbert's work is directly focused on assuring complete employee satisfaction and loyalty.</p>
+				</div>
+		
+				<!-- Mike Content -->
+				<div id="mike">
+					<h5>Mike</h5>
+					<p>Vice President, Sales and Marketing</p>
+					<p>Mike serves as the Vice President of Sales and Marketing for Vecta Corp. In this role, Mike oversees Vecta Corp.'s marketing and corporate communications efforts worldwide. Mike joined Vecta Corp. in early 1998 and worked in business development roles prior to being assigned to lead Vecta Corp.'s global vSolutions sales and marketing team in the summer of 2000. He initiated Vecta Corp.'s global branding and marketing campaigns as vSolutions global director and then Vice President of Marketing. In 2001, his role expanded to include overall responsibility for corporate marketing, sales, and communications.</p>
+				</div>
+		
+				<!-- Wilbur Content -->
+				<div id="wilbur">
+					<h5>Wilbur</h5>
+					<p>Founder and CEO</p>
+					<p>While Wilbur is the founder and CEO of Vecta Corp, he is primarily known for being the pioneer and world leader of creating vSolutions. Wilbur has led the commercialization of vSolution technology and its success as the world's fastest-growing, most advanced technologies in its respective industry. Now used by tens of millions of consumers worldwide, vSolutions have been the technology of choice for governments and private organizations for nearly a decade.</p>
+				</div>
+			</div>
+		
             
             <h4>Our New Headquarters</h4>
             
             <!-- INSERT CYCLE 2 HERE -->
+			<div class="cycle-slideshow" data-cycle-fx="fade" data-cycle-timeout="3000" data-cycle-slides="> img">
+				<!-- Image 1 -->
+				<img src="vectacorp/images/building_01.jpg" alt="Headquarters Image 1">
+
+				<!-- Image 2 -->
+				<img src="vectacorp/images/building_02.jpg" alt="Headquarters Image 2">
+
+				<!-- Image 3 -->
+				<img src="vectacorp/images/building_03.jpg" alt="Headquarters Image 3">
+
+				<!-- Image 4 -->
+				<img src="vectacorp/images/building_04.jpg" alt="Headquarters Image 4">
+
+				<!-- Image 5 -->
+				<img src="vectacorp/images/building_05.jpg" alt="Headquarters Image 5">
+			</div>
+
+			<!-- Cycle 2 Navigation -->
+			<div class="cycle-navigation">
+				<a href="#" id="prev">&lt; Prev</a>
+				<a href="#" id="next">Next &gt;</a>
+			</div>
+
+			<!-- Cycle 2 Pager -->
+			<div id="pager"></div>
         </section>
 		
 		<section id="testimonials" class="five columns">
-			<h4>Careers</h4>
-			<p>We are always looking for educated and motivated people to join our team. Do you have what it takes to build best-of-breed vSolutions? Submit your resume.</p>
+			<h4>Client Testimonials</h4>
+
+			<!-- INSERT ACCORDION HERE -->
+			<div id="testimonial-accordion">
+				<h3>Iona Ford - Chevy Dealers Association</h3>
+				<div>
+					<p>Throughout the years we have worked with Vecta Corporation, we have always been amazed at the level of dedication and professionalism that they have provided us and our WGDC products. It is this commitment that has increased both our income and exposure exponentially.</p>
+				</div>
+		
+				<h3>Robin Banks - Profits Financial, Inc.</h3>
+				<div>
+					<p>Incredible results from an incredible effort by the Vecta Corporation team! We are very pleased with the business benefits we have received by working with them.</p>
+				</div>
+			</div>
+		
+			<script>
+				$(function () {
+					// Initialize the Accordion
+					$("#testimonial-accordion").accordion({
+						collapsible: true,
+						active: false
+					});
+				});
+			</script>
 		</section>
 	</main>
 </body>

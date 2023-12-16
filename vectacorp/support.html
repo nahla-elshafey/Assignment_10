@@ -19,6 +19,25 @@
 			$('#responsive-menu').mobileMenu();
 		});
 	</script>
+
+	<script>
+		$(document).ready(function(){
+			$('#responsive-menu li a').tooltip({
+				position: {
+					my: "left+500 top+50",
+					at: "center bottom",
+					using: function( position, feedback ) {
+						$( this ).css( position );
+						$( "<div>" )
+							.addClass( "arrow" )
+							.addClass( feedback.vertical )
+							.addClass( feedback.horizontal )
+							.appendTo( this );
+					}
+				}
+			});
+		});
+	</script>
 </head>
 <body>
 	<main class="container">
