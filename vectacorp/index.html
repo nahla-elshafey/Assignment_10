@@ -12,11 +12,28 @@
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
-	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="./jquery-3.1.1.min.js"></script>
+	<script src="./jquery-ui.js"></script>
 	<script src="js/jquery.mobilemenu.js"></script>
 	<script>
 		$(document).ready(function(){
 			$('#responsive-menu').mobileMenu();
+			// Add Tooltip to navigation menu items
+			
+			$('#responsive-menu li a').tooltip({
+			position: {
+				my: "left+500 top+50",
+                at: "center bottom",
+				using: function( position, feedback ) {
+					$( this ).css( position );
+					$( "<div>" )
+						.addClass( "arrow" )
+						.addClass( feedback.vertical )
+						.addClass( feedback.horizontal )
+						.appendTo( this );
+				}
+			}
+		});
 		});
 	</script>
 </head>
@@ -28,11 +45,11 @@
 		
 		<nav class="thirteen columns">
 			<ul id="responsive-menu">
-				<li><a href="index.html">Home</a></li>
-				<li><a href="aboutus.html">About Us</a></li>
-				<li><a href="solutions.html">Solutions</a></li>
-				<li><a href="support.html">Support</a></li>
-				<li><a href="contactus.html">Contact Us</a></li>
+				<li><a href="index.html" title="Vecta Corp. offers innovative solutions to make your home a better place.">Home</a></li>
+				<li><a href="aboutus.html" title="Learn more about Vecta Corp. and our commitment to excellence.">About Us</a></li>
+				<li><a href="solutions.html" title="Vecta Corp. offers 3 solutions for prospecting, converting, and retaining customers.">Solutions</a></li>
+				<li><a href="support.html" title="Get support from Vecta Corp. for all your needs.">Support</a></li>
+				<li><a href="contactus.html" title="Contact Vecta Corp. for any inquiries or assistance.">Contact Us</a></li>
 			</ul>
 		</nav>
 		
